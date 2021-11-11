@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
   login(){    
        
     this.Service.Login(this.model).subscribe(
-        
       (res) => {  
-                     
           console.log("Success");
           sessionStorage.setItem('username',this.model.UserName)
           //this.Service.sendstatus(true);

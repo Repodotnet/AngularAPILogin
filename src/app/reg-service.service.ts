@@ -23,7 +23,7 @@ export class RegServiceService {
 
     //this.Url = 'http://localhost:14812/api/Login/';  
     this.Url='http://localhost:57596/api/users';
-
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
     
     const headerSettings: {[name: string]: string | string[]; } = {};  
     this.header = new HttpHeaders(headerSettings);  
@@ -37,19 +37,15 @@ export class RegServiceService {
   {
     return this.subject.asObservable();
   }
-  Login(model : any){  
-    //debugger;  
-     var a =this.Url+'UserLogin';  
+  Login(model : any){        
     return this.http.post<any>(this.Url+'/UserLogin',JSON.stringify(model),this.httpOptions );  
   }  
-   CreateUser(register:Register)  
+   /* CreateUser(register:Register)  
    {  
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
-    return this.http.post<Register[]>(this.Url + '/createcontact/', register, httpOptions)  
-   }  
+    return this.http.post<Register[]>(this.Url + '/createcontact/', register, this.httpOptions)  
+   }  */ 
    Register(register:Register)  
-   {  
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
-    return this.http.post<Register[]>(this.Url , register, httpOptions)  
+   {      
+    return this.http.post<Register[]>(this.Url , register, this.httpOptions)  
    } 
 }

@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.recievedStatus().subscribe((data)=>{
-      this.message=data;
+      this.message=data;//true
       });
   }
  logout()
